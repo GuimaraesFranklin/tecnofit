@@ -32,7 +32,16 @@ Route::get('/produtos', 'ControllerProduto@index');
 Route::get('/produtos/novoproduto','ControllerProduto@create');
 //store product
 Route::post('/produtos','ControllerProduto@store');
+//delete product
+Route::get('/produtos/apagar/{id}', 'ControllerProduto@destroy');
 
 
+//index
 Route::get('/pedidos', 'ControllerPedido@index');
+//create
+Route::get('/pedidos/novopedido','ControllerPedido@create');
+//store product
+Route::post('/pedidos','ControllerPedido@store');
+//delete product
+Route::get('/pedidos/apagar/{id}', 'ControllerPedido@destroy');
 

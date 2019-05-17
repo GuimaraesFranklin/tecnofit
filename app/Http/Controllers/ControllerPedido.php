@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Pedido;
 
 class ControllerPedido extends Controller
 {
@@ -13,7 +14,8 @@ class ControllerPedido extends Controller
      */
     public function index()
     {
-        return view('pedidos');
+        $peds = Pedido::all();
+        return view('pedidos', compact('peds'));
     }
 
     /**
@@ -23,7 +25,7 @@ class ControllerPedido extends Controller
      */
     public function create()
     {
-        //
+        return view('novopedido');
     }
 
     /**
@@ -34,7 +36,12 @@ class ControllerPedido extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $ped = new Pedido();
+        $ped->total = $request->input('totalPedido');
+        $ped->data = $request->input('dataPedido');
+        $ped->produtos = $request->input('produtosPedido');
+        $ped->save();
+        return redirect('/pedidos');
     }
 
     /**
@@ -79,6 +86,10 @@ class ControllerPedido extends Controller
      */
     public function destroy($id)
     {
-        //
+        $ped = Pedido::find($id);
+        if(isset($ped)) {
+            $ped->delete();
+        }
+        return redirect('/pedidos');
     }
 }

@@ -18,7 +18,7 @@ class CreatePedidosTable extends Migration
             $table->float('total');
             $table->date('data');
             $table->integer('produtos')->unsigned();
-            $table->foreign('produtos')->references('id')->on('produtos')->onDelete('cascade');
+            $table->foreign('produtos')->references('id')->on('produtos');
             $table->timestamps();
         });
     }
