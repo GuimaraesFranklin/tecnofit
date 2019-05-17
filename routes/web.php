@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 Auth::routes();
@@ -26,5 +26,13 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
 
-Route::get('produtos', 'ControllerProduto@index');
-Route::get('pedidos', 'ControllerPedido@index');
+//index
+Route::get('/produtos', 'ControllerProduto@index');
+//create product
+Route::get('/produtos/novoproduto','ControllerProduto@create');
+//store product
+Route::post('/produtos','ControllerProduto@store');
+
+
+Route::get('/pedidos', 'ControllerPedido@index');
+
