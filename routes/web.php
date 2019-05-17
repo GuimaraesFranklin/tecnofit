@@ -34,14 +34,20 @@ Route::get('/produtos/novoproduto','ControllerProduto@create');
 Route::post('/produtos','ControllerProduto@store');
 //delete product
 Route::get('/produtos/apagar/{id}', 'ControllerProduto@destroy');
-
+//edit product
+Route::get('/produtos/editar/{id}', 'ControllerProduto@edit');
+//update
+Route::post('/produtos/{id}','ControllerProduto@update');
 
 //index
 Route::get('/pedidos', 'ControllerPedido@index');
-//create
+//create pedido
 Route::get('/pedidos/novopedido','ControllerPedido@create');
-//store product
+//store pedido
 Route::post('/pedidos','ControllerPedido@store');
-//delete product
+//delete pedido
 Route::get('/pedidos/apagar/{id}', 'ControllerPedido@destroy');
-
+//edit pedido
+Route::get('/pedidos/editar/{id}', 'ControllerPedido@edit');
+//update
+Route::post('/pedidos/{id}','ControllerPedido@update');

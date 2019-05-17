@@ -63,7 +63,11 @@ class ControllerPedido extends Controller
      */
     public function edit($id)
     {
-        //
+        $ped = Pedido::find($id);
+        if(isset($ped)) {
+            return view('editarpedido', compact('ped'));
+        }
+        return redirect('/pedidos');
     }
 
     /**
@@ -75,7 +79,15 @@ class ControllerPedido extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $ped = Pedido::find($id);
+        if(isset($ped)) {
+            $ped->total = $request->input('totalPedido');
+            $ped->data = $request->input('dataPedido');
+            $ped->produtos = $request->input('produtosPedido');
+            $ped->save();
+
+        }
+        return redirect('/pedidos');
     }
 
     /**

@@ -1,4 +1,4 @@
-@extends('adminlte::page', ["current" => "home"])
+@extends('adminlte::page')
 
 @section('title', 'Tecnofit Challenge')
 
