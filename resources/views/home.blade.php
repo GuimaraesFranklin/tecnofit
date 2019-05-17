@@ -1,11 +1,11 @@
-@extends('adminlte::page')
+@extends('adminlte::page', ["current" => "home"])
 
-@section('title', 'AdminLTE')
+@section('title', 'Tecnofit Challenge')
 
 @section('content_header')
     <h1>Dashboard</h1>
 @stop
 
 @section('content')
-    <p>You are logged in!</p>
+    <p>Welcome to Tecnofit Challenge</p>
 @stop
